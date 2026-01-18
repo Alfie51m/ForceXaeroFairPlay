@@ -108,6 +108,10 @@ public class ForceXaeroFairPlay extends JavaPlugin implements Listener, CommandE
                 messageBuilder.append("§f§a§i§r§x§a§e§r§o");
                 break;
 
+            case "fairplay_nether":
+                messageBuilder.append("§f§a§i§r§x§a§e§r§o§x§a§e§r§o§w§m§n§e§t§h§e§r§i§s§f§a§i§r§x§a§e§r§o§m§m§n§e§t§h§e§r§i§s§f§a§i§r");
+                break;
+
             case "disabled":
                 messageBuilder.append("§n§o§m§i§n§i§m§a§p");
                 break;
