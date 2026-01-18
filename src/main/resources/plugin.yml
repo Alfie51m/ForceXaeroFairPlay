@@ -5,4 +5,4 @@ api-version: '1.21'
 permissions:
   forcexaerofairplay.bypass:
     description: Prevents the plugin from changing your minimap mode.
-    default: not op
+    default: op
