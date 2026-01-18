@@ -24,7 +24,11 @@ worldModes:
 ```
 
 ## Permissions
-- **`forcexaerofairplay.bypass`**: Players with this permission will not have their map set to Fair Play mode.
+- **`forcexaerofairplay.bypass`**: Players with this permission will not have their map set to Fair Play mode. Default: OP
+- **`forcexaerofairplay.reload`**: Allows users to reload the plugin with /fxfp reload. Default: OP
+
+## Commands
+- **`/fxfp reload`** - Reloads plugin config file.
 
 ## Installation
 1. Download the latest release from the [Releases](https://github.com/Alfie51m/ForceXaeroFairPlay/releases) section.
