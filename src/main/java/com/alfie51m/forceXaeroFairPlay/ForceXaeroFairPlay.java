@@ -8,13 +8,19 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 
-public class ForceXaeroFairPlay extends JavaPlugin implements Listener {
+public class ForceXaeroFairPlay extends JavaPlugin implements Listener, CommandExecutor, TabCompleter {
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
         getServer().getPluginManager().registerEvents(this, this);
+        getCommand("fxfp").setExecutor(this);
+        getCommand("fxfp").setTabCompleter(this);
         getLogger().info("ForceXaeroFairPlay has been enabled!");
     }
 
@@ -36,6 +42,47 @@ public class ForceXaeroFairPlay extends JavaPlugin implements Listener {
         String toWorld = player.getWorld().getName();
 
         handlePlayerMode(player, toWorld, fromWorld);
+    }
+
+    @Override
+    public java.util.List<String> onTabComplete(
+            CommandSender sender,
+            Command command,
+            String alias,
+            String[] args) {
+
+        if (args.length == 1) {
+            java.util.List<String> completions = new java.util.ArrayList<>();
+
+            if (sender.hasPermission("forcexaerofairplay.reload")) {
+                if ("reload".startsWith(args[0].toLowerCase())) {
+                    completions.add("reload");
+                }
+            }
+
+            return completions;
+        }
+
+        return java.util.Collections.emptyList();
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+        if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
+
+            if (!sender.hasPermission("forcexaerofairplay.reload")) {
+                sender.sendMessage("§cYou do not have permission to do this.");
+                return true;
+            }
+
+            reloadConfig();
+            sender.sendMessage("§aForceXaeroFairPlay config reloaded.");
+            return true;
+        }
+
+        sender.sendMessage("§eUsage: §6/fxfp reload");
+        return true;
     }
 
     private void handlePlayerMode(Player player, String toWorldName, String fromWorldName) {

@@ -2,7 +2,16 @@ name: ForceXaeroFairPlay
 version: ${version}
 main: com.alfie51m.forceXaeroFairPlay.ForceXaeroFairPlay
 api-version: '1.21'
+commands:
+  fxfp:
+    description: ForceXaeroFairPlay Command
+    usage: /fxfp reload
+
 permissions:
   forcexaerofairplay.bypass:
     description: Prevents the plugin from changing your minimap mode.
+    default: op
+
+  forcexaerofairplay.reload:
+    description: Allows reloading the plugin config
     default: op
