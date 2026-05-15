@@ -31,3 +31,17 @@ defaultMode: fairplay
 worldModes:
   world_nether: fairplay_nether
   custom_world: none
+
+```
+
+## Permissions
+- **`forcexaerofairplay.bypass`**: Players with this permission will not have their map set to Fair Play mode. Default: OP
+- **`forcexaerofairplay.reload`**: Allows users to reload the plugin with /fxfp reload. Default: OP
+
+## Commands
+- **`/fxfp reload`** - Reloads plugin config file.
+
+## Installation
+1. Download the latest release from the [Releases](https://github.com/kungfu5554/ForceXaeroFairPlay-Folia-Support/releases) section.
+2. Place the `.jar` file in your server's `plugins` folder.
+3. Restart your server.
